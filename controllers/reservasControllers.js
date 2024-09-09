@@ -1,16 +1,16 @@
-import Servicios from '../models/servicios.js'
-//get all documents from servicios
+import Reservas from '../models/reservas.js'
+//get all documents from reservas
 
-export async function  getServicios (req,res){
-    const servicios = await Servicios.find()//
-    res.json(servicios)//
+export async function  getReservas (req,res){
+    const reservas = await Reservas.find()//
+    res.json(reservas)//
 }
-export async function postServicios (req,res){
+export async function postReservas (req,res){
     const body =req.body //Obtiene el body envia al post un formulario
-    let msg ='Servicio inserted succesful'
+    let msg ='reserva inserted succesfully'
     try {
-        const servicios = new Servicios(body) //create the objet servicios (RAM)(lA RAM ES TEMPORAL, NO SIGNIFICA QUE CUANDO EL OBJETO ESTA EN LA RAM NO ESTA EN LA BASE DE DATOS)
-        await servicios.save() //save the objet in the database
+        const reservas = new Reservas(body) //create the objet reservas (RAM)(lA RAM ES TEMPORAL, NO SIGNIFICA QUE CUANDO EL OBJETO ESTA EN LA RAM NO ESTA EN LA BASE DE DATOS)
+        await reservas.save() //save the objet in the database
         res.json({msg})
     } catch (error) {
         msg = error
